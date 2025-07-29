@@ -101,6 +101,7 @@ export default function handler(req, res) {
     <!-- Farcaster Frame Metadata -->
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${jokeImageUrl}" />
+    <meta property="fc:frame:image:aspect_ratio" content="1.91:1" />
     <meta property="fc:frame:button:1" content="Get Another Joke 😄" />
     <meta property="fc:frame:button:2" content="Share Joke 📱" />
     <meta property="fc:frame:button:2:action" content="link" />
