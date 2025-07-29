@@ -37,8 +37,8 @@ function generateJokeImage(joke) {
     }
     if (currentLine) lines.push(currentLine);
     
-    const formattedJoke = lines.join('%0A');
-    return `https://fakeimg.pl/600x400/4a5568/ffffff?text=🎭%20${encodeURIComponent(formattedJoke)}%20🎭&font=arial&font_size=18`;
+    const formattedJoke = lines.join('+');
+    return `https://placehold.co/600x400/4a5568/ffffff.png?text=${encodeURIComponent(formattedJoke)}`;
 }
 
 export default function handler(req, res) {
