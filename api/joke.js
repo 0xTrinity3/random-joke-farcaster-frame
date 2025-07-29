@@ -56,23 +56,14 @@ export default function handler(req, res) {
         
         // Simple frame HTML response
         const html = `<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta property="fc:frame" content="vNext">
+    <meta property="fc:frame:image" content="${jokeImageUrl}">
+    <meta property="fc:frame:button:1" content="Get Another Joke">
+    <meta property="fc:frame:post_url" content="https://random-joke-farcaster-frame.vercel.app/api/joke">
     <title>Random Joke Frame</title>
-    
-    <!-- Required Farcaster Frame tags -->
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${jokeImageUrl}" />
-    <meta property="fc:frame:image:aspect_ratio" content="1.91:1" />
-    <meta property="fc:frame:button:1" content="Get Another Joke" />
-    <meta property="fc:frame:post_url" content="https://random-joke-farcaster-frame.vercel.app/api/joke" />
-    
-    <!-- Open Graph fallback -->
-    <meta property="og:title" content="Random Joke Frame" />
-    <meta property="og:description" content="${randomJoke}" />
-    <meta property="og:image" content="${jokeImageUrl}" />
 </head>
 <body>
     <h1>Random Joke Frame</h1>
