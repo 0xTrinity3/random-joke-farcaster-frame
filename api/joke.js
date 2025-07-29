@@ -65,6 +65,7 @@ export default function handler(req, res) {
     <!-- Required Farcaster Frame tags -->
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${jokeImageUrl}" />
+    <meta property="fc:frame:image:aspect_ratio" content="1.91:1" />
     <meta property="fc:frame:button:1" content="Get Another Joke" />
     <meta property="fc:frame:post_url" content="https://random-joke-farcaster-frame.vercel.app/api/joke" />
     
