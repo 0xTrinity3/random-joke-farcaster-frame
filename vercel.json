@@ -1,6 +1,13 @@
 {
-  "buildCommand": "echo 'No build step required'",
-  "outputDirectory": ".",
-  "devCommand": "npx serve .",
-  "installCommand": "npm install"
+  "rewrites": [
+    { "source": "/frame", "destination": "/api/frame" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
 }
