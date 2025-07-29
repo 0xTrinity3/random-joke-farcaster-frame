@@ -52,9 +52,9 @@ const jokes = [
 ];
 
 function generateJokeImage(joke) {
-    // Create a URL-encoded image with the joke text
+    // Create a URL-encoded image with the joke text using our custom image generator
     const encodedJoke = encodeURIComponent(joke);
-    return `https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=${encodedJoke}`;
+    return `https://random-joke-farcaster-frame.vercel.app/api/image?joke=${encodedJoke}`;
 }
 
 export default function handler(req, res) {
