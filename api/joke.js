@@ -51,13 +51,9 @@ const jokes = [
     "Why don't eggs tell each other jokes? Because they might crack up!"
 ];
 
-function generateJokeImage(joke) {
-    // Use a reliable image generation service that supports PNG
-    // We'll use a simple approach with fal.ai or similar service
-    // For now, let's use a simpler placeholder approach that works
-    const shortJoke = joke.length > 100 ? joke.substring(0, 97) + '...' : joke;
-    const encodedJoke = encodeURIComponent(shortJoke);
-    return `https://fakeimg.pl/600x400/667eea/ffffff?text=${encodedJoke}&font=arial&font_size=20`;
+function getStaticComedyImage() {
+    // Use a static comedy-themed image for visual appeal
+    return `https://fakeimg.pl/600x400/667eea/ffffff?text=🎭%20RANDOM%20JOKE%20🎭%0A%0A😄%20Get%20ready%20to%20laugh!%20😄&font=arial&font_size=28`;
 }
 
 export default function handler(req, res) {
@@ -71,8 +67,11 @@ export default function handler(req, res) {
         const randomIndex = Math.floor(Math.random() * jokes.length);
         const randomJoke = jokes[randomIndex];
         
-        // Generate image with the joke
-        const jokeImageUrl = generateJokeImage(randomJoke);
+        // Use static comedy image
+        const comedyImageUrl = getStaticComedyImage();
+        
+        // Truncate joke if too long for text input label (32 byte limit)
+        const jokeForLabel = randomJoke.length > 200 ? randomJoke.substring(0, 197) + "..." : randomJoke;
         
         // Return HTML with new frame
         const html = `
@@ -85,7 +84,8 @@ export default function handler(req, res) {
     
     <!-- Farcaster Frame Metadata -->
     <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${jokeImageUrl}" />
+    <meta property="fc:frame:image" content="${comedyImageUrl}" />
+    <meta property="fc:frame:input:text" content="${jokeForLabel}" />
     <meta property="fc:frame:button:1" content="Get Another Joke 😄" />
     <meta property="fc:frame:button:2" content="Share Joke 📱" />
     <meta property="fc:frame:button:2:action" content="link" />
@@ -95,7 +95,7 @@ export default function handler(req, res) {
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Random Joke Frame">
     <meta property="og:description" content="${randomJoke}">
-    <meta property="og:image" content="${jokeImageUrl}">
+    <meta property="og:image" content="${comedyImageUrl}">
     <meta property="og:url" content="https://random-joke-farcaster-frame.vercel.app/">
     <meta property="og:type" content="website">
 </head>
