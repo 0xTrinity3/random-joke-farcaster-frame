@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:miniapps.farcaster.xyz)",
+      "Bash(npm install)"
+    ],
+    "deny": []
+  }
+}
