@@ -52,9 +52,12 @@ const jokes = [
 ];
 
 function generateJokeImage(joke) {
-    // Create a URL-encoded image with the joke text using our custom image generator
-    const encodedJoke = encodeURIComponent(joke);
-    return `https://random-joke-farcaster-frame.vercel.app/api/image?joke=${encodedJoke}`;
+    // Use a reliable image generation service that supports PNG
+    // We'll use a simple approach with fal.ai or similar service
+    // For now, let's use a simpler placeholder approach that works
+    const shortJoke = joke.length > 100 ? joke.substring(0, 97) + '...' : joke;
+    const encodedJoke = encodeURIComponent(shortJoke);
+    return `https://fakeimg.pl/600x400/667eea/ffffff?text=${encodedJoke}&font=arial&font_size=20`;
 }
 
 export default function handler(req, res) {
