@@ -1,7 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/frame", "destination": "/api/frame" }
-  ],
+  "functions": {
+    "api/joke.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
